@@ -1,0 +1,28 @@
+<h1>
+  Available Stylist :-</h1>
+
+<% if @stylists.any?() %>
+<h3>Here are some of the Available Stylists:-</h3>
+
+<ul>
+  <% @stylists.each() do |stylist| %>
+  <li>
+    <a href="/stylists/<%= stylist.id()%>"><%= stylist.name() %></a>
+  </li>
+  <% end %>
+</ul>
+
+<% else %>
+
+<p>There are no available Stylists.</p>
+
+<% end %>
+
+<form action="/stylists" method="post">
+  <input id="stylist" name="stylist" type="hidden"">
+
+  <label for="name">Name of the stylist:</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Add stylist</button>
+</form>
